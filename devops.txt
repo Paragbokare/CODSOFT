@@ -1,0 +1,59 @@
+*maven pipeline*
+pipeline
+{
+    agent any
+    tools{
+        maven 'Default'
+    }
+    
+    stages{
+        stage('Build'){
+            steps{
+                echo 'This pipeline build by Parag'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: ' https://github.com/Paragbokare/maven.git ']])
+                            
+                }
+            }
+        }
+        post{
+            always {
+                junit(
+                    allowEmptyResults:true,
+                    testResults: 'tests-reports/.xml'
+                    )
+            }
+        }
+    }
+ 
+
+*java pipeline*
+
+pipeline {
+    agent any
+
+    stages {
+        stage('build') {
+            steps {
+                echo 'build'
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deploy'
+            }
+        }
+    }
+}
+
+*JAva*
+
+class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
