@@ -1,0 +1,30 @@
+pipeline
+{
+    agent any
+    tools{
+        maven 'maven'
+    }
+    
+    stages{
+        stage('Build'){
+            steps{
+                echo 'This pipeline build by Ash'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Ashd30/mavenn.git']])
+                            
+                }
+            }
+        }
+        post{
+            always {
+                junit(
+                    allowEmptyResults:true,
+                    testResults: 'tests-reports/.xml'
+                    )
+            }
+        }
+    }
+
+
+
+
+github: https://github.com/Ashd30/mavenn.git/

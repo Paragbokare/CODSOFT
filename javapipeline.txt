@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('build') {
+            steps {
+                echo 'build'
+            }
+        }
+        stage('test') {
+            steps {
+                echo 'test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deploy'
+            }
+        }
+    }
+}
+
+
+
+github: https://github.com/Ashd30/Pipeline1.git/
+pipeline
+{
+  agent any
+
+  stages{
+    stage('Hello'){
+      steps{
+        echo 'Hello!'
+      }
+  }
+}
+}

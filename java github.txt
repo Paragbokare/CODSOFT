@@ -1,0 +1,8 @@
+github: https://github.com/Ashd30/exp1.git
+
+
+class firstjob{  
+    public static void main(String args[]){  
+     System.out.println("Hello Java");  
+    }  
+}  
